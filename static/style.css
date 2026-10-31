@@ -1,0 +1,332 @@
+/* ==========================================================================
+   THE DIGITAL EXORCIST: CORP-NET INVESTIGATIONS
+   90s Cyberpunk Noir / Police Terminal Aesthetic
+   ========================================================================== */
+
+:root {
+    --term-main: #00ff66;
+    --term-dim: #00aa44;
+    --term-border: #1a3324;
+    --term-panel-bg: #0c1410;
+    --term-bg: #090d13;
+}
+
+body.theme-green {
+    --term-main: #00ff66;
+    --term-dim: #00aa44;
+    --term-border: #1b382b;
+    --term-panel-bg: #0d1612;
+}
+
+body.theme-amber {
+    --term-main: #ffb000;
+    --term-dim: #b87a00;
+    --term-border: #3d2b0b;
+    --term-panel-bg: #19130a;
+}
+
+body.theme-cyan {
+    --term-main: #00f0ff;
+    --term-dim: #0099aa;
+    --term-border: #0f303a;
+    --term-panel-bg: #0a161b;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--term-bg);
+    color: #d1d5db;
+    font-family: 'Courier New', Courier, monospace, system-ui;
+    font-size: 13px;
+    line-height: 1.5;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* CRT Scanlines Overlay */
+body.scanlines::before {
+    content: " ";
+    display: block;
+    position: fixed;
+    top: 0; left: 0; bottom: 0; right: 0;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.4) 50%);
+    background-size: 100% 4px;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0.65;
+}
+
+/* Phosphor Glow */
+.glow-text {
+    text-shadow: 0 0 6px currentColor;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+::-webkit-scrollbar-track {
+    background: #05070a;
+}
+::-webkit-scrollbar-thumb {
+    background: var(--term-border);
+    border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--term-main);
+}
+
+/* Header */
+.top-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background: rgba(12, 20, 16, 0.95);
+    border-bottom: 1px solid var(--term-border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(4px);
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+}
+
+.brand-icon {
+    font-size: 20px;
+    color: var(--term-main);
+    animation: pulse 2s infinite;
+}
+
+.brand h1 {
+    font-size: 15px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    color: var(--term-main);
+}
+
+.brand-subtitle {
+    font-size: 10px;
+    color: var(--term-dim);
+}
+
+.nav-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn {
+    background: transparent;
+    border: 1px solid var(--term-border);
+    color: #e5e7eb;
+    padding: 5px 12px;
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: 700;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: all 0.15s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.btn:hover {
+    border-color: var(--term-main);
+    color: var(--term-main);
+    background: rgba(0, 255, 102, 0.05);
+}
+
+.btn-primary {
+    background: var(--term-main);
+    color: #000;
+    border-color: var(--term-main);
+}
+
+.btn-primary:hover {
+    background: #fff;
+    color: #000;
+    border-color: #fff;
+}
+
+.btn-danger {
+    background: rgba(220, 38, 38, 0.2);
+    border-color: #ef4444;
+    color: #fca5a5;
+}
+
+.btn-danger:hover {
+    background: #ef4444;
+    color: #fff;
+}
+
+.btn-warning {
+    background: rgba(245, 158, 11, 0.2);
+    border-color: #f59e0b;
+    color: #fde68a;
+}
+
+.btn-warning:hover {
+    background: #f59e0b;
+    color: #000;
+}
+
+/* Telemetry Strip */
+.telemetry-strip {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 10px;
+    padding: 10px 20px;
+    background: #05070a;
+    border-bottom: 1px solid var(--term-border);
+}
+
+.telemetry-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 12px;
+    background: var(--term-panel-bg);
+    border: 1px solid var(--term-border);
+    border-radius: 4px;
+}
+
+.tel-icon {
+    font-size: 18px;
+}
+
+.tel-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.tel-label {
+    font-size: 10px;
+    color: var(--term-dim);
+    text-transform: uppercase;
+}
+
+.tel-value {
+    font-size: 14px;
+    font-weight: 900;
+    color: #fff;
+}
+
+.tel-sub {
+    font-size: 9px;
+    color: #9ca3af;
+}
+
+/* Layout container */
+.app-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Mission Corkboard */
+.corkboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 16px;
+    margin-top: 16px;
+}
+
+.case-card {
+    background: var(--term-panel-bg);
+    border: 1px solid var(--term-border);
+    border-radius: 6px;
+    padding: 16px;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.case-card:hover {
+    border-color: var(--term-main);
+    box-shadow: 0 0 15px rgba(0, 255, 102, 0.12);
+    transform: translateY(-2px);
+}
+
+.case-card.solved {
+    border-color: #22c55e;
+}
+
+.push-pin {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 12px;
+    height: 12px;
+    background: #ef4444;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #ef4444;
+}
+
+/* ASCII Portraits */
+pre.ascii-portrait {
+    font-family: inherit;
+    font-size: 10px;
+    line-height: 1.15;
+    background: #000;
+    border: 1px solid var(--term-border);
+    padding: 8px;
+    border-radius: 4px;
+    color: var(--term-main);
+    overflow: hidden;
+    user-select: none;
+}
+
+/* Modal / Drawer */
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(4px);
+    z-index: 1000;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.drawer-content {
+    width: 100%;
+    max-width: 650px;
+    background: #090d13;
+    border-left: 1px solid var(--term-border);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.8);
+    overflow: hidden;
+}
+
+/* Animations */
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+}
+
+@keyframes glitch {
+    0% { transform: translate(0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(-2px, -2px); }
+    60% { transform: translate(2px, 2px); }
+    80% { transform: translate(2px, -2px); }
+    100% { transform: translate(0); }
+}

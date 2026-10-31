@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Digital Exorcist: Corp-Net Investigations</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body class="theme-green scanlines">
+
+    <!-- Top Navigation Bar -->
+    <header class="top-nav">
+        <div class="brand" title="Return to Mission Corkboard">
+            <div class="brand-icon">⚡</div>
+            <div>
+                <h1>THE DIGITAL EXORCIST</h1>
+                <div class="brand-subtitle">Corp-Net Investigations // Detective Rick "Null" Deckard</div>
+            </div>
+        </div>
+
+        <div class="nav-controls">
+            <!-- Audio Toggle -->
+            <button id="btn-toggle-sound" class="btn btn-primary" title="Toggle Procedural Synth Audio">
+                🔊 Synth: ON
+            </button>
+
+            <!-- CRT Scanline Filter Toggle -->
+            <button id="btn-toggle-scanlines" class="btn" title="Toggle 90s CRT Scanline Filter">
+                📺 CRT Filter
+            </button>
+
+            <!-- Theme Buttons -->
+            <div style="display:flex; border:1px solid var(--term-border); border-radius:3px; overflow:hidden;">
+                <button class="theme-btn btn" data-theme="green" style="padding:4px 8px; border:none; color:#00ff66;">GRN</button>
+                <button class="theme-btn btn" data-theme="amber" style="padding:4px 8px; border:none; color:#ffb000;">AMB</button>
+                <button class="theme-btn btn" data-theme="cyan" style="padding:4px 8px; border:none; color:#00f0ff;">CYN</button>
+            </div>
+
+            <!-- Time-Travel Ledger Trigger -->
+            <button id="btn-open-ledger" class="btn btn-primary" title="Open Dual-State Time-Travel Ledger">
+                📜 TIME-TRAVEL [<span id="ledger-badge-count">1</span>]
+            </button>
+        </div>
+    </header>
+
+    <!-- Real-World Telemetry Strip -->
+    <section class="telemetry-strip">
+        <div class="telemetry-card">
+            <div class="tel-icon">⚡</div>
+            <div class="tel-info">
+                <span class="tel-label">Spam Vaporized</span>
+                <span id="tel-vaporized" class="tel-value">0</span>
+                <span class="tel-sub">Real emails purged</span>
+            </div>
+        </div>
+
+        <div class="telemetry-card">
+            <div class="tel-icon">💾</div>
+            <div class="tel-info">
+                <span class="tel-label">Space Reclaimed</span>
+                <span id="tel-bytes" class="tel-value">0.00 MB</span>
+                <span class="tel-sub">Storage decluttered</span>
+            </div>
+        </div>
+
+        <div class="telemetry-card">
+            <div class="tel-icon">💸</div>
+            <div class="tel-info">
+                <span class="tel-label">Fraud Voided</span>
+                <span id="tel-fraud" class="tel-value">$0</span>
+                <span class="tel-sub">Slush funds blocked</span>
+            </div>
+        </div>
+
+        <div class="telemetry-card">
+            <div class="tel-icon">👾</div>
+            <div class="tel-info">
+                <span class="tel-label">Bugs Exorcised</span>
+                <span id="tel-bugs" class="tel-value">0</span>
+                <span class="tel-sub">Bytecode leaks fixed</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Viewport (Corkboard or Active Case) -->
+    <main class="app-container" id="main-content">
+        <!-- Rendered dynamically by game.js -->
+    </main>
+
+    <!-- Time-Travel Rollback Drawer Modal -->
+    <div id="ledger-modal" class="modal-overlay" style="display:none;">
+        <div class="drawer-content">
+            <div style="padding:16px; border-bottom:1px solid var(--term-border); background:var(--term-panel-bg); display:flex; justify-content:space-between; align-items:center;">
+                <div>
+                    <h3 style="color:var(--term-main); font-size:14px; font-weight:900;">
+                        CHRONOS DUAL-STATE TIME-TRAVEL LEDGER
+                    </h3>
+                    <div style="font-size:10px; color:var(--term-dim);">Immutable zero-tamper forensic execution bridge</div>
+                </div>
+                <div style="display:flex; gap:8px;">
+                    <button id="btn-export-dispatch" class="btn" title="Download dispatch report">
+                        ⬇️ EXPORT DISPATCH
+                    </button>
+                    <button id="btn-close-ledger" class="btn btn-danger">✕</button>
+                </div>
+            </div>
+
+            <!-- Ledger Entries Scroll Area -->
+            <div id="ledger-entries-list" style="flex:1; overflow-y:auto; padding:16px; display:flex; flex-direction:column; gap:10px;">
+                <!-- Entries rendered by game.js -->
+            </div>
+
+            <div style="padding:10px 16px; border-top:1px solid var(--term-border); background:var(--term-panel-bg); font-size:10px; color:var(--term-dim); text-align:center;">
+                DUAL-STATE EXECUTION BRIDGE: CHANGES ARE IMMUTABLY BOUND TO CORP-NET DISK VOLUMES
+            </div>
+        </div>
+    </div>
+
+    <!-- Procedural Audio Engine & Game Script -->
+    <script src="audio.js"></script>
+    <script src="game.js"></script>
+</body>
+</html>
